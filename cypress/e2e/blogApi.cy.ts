@@ -33,7 +33,6 @@ describe('Blog API test', () => {
             })
         })
     })
-
     context('Private API', () => {
 
     })
