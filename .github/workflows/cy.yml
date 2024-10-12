@@ -18,10 +18,6 @@ jobs:
         env:
           CI: true
 
-      # Wait for server to be ready using wait-on
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3030
-
       # Run Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5
