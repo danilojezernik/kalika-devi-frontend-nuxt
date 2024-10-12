@@ -7,12 +7,9 @@ describe('Blog API test', () => {
         });
     });
 
-    context('Private Intercept', () => {
 
-    })
+    context('Public API', () => {
 
-    context('Public API', () => {   
-                 
         const blogProperties = ['title', 'podnaslov', 'kategorija', 'vsebina', 'image', 'datum_vnosa']
         const limit = 4
 
@@ -20,8 +17,8 @@ describe('Blog API test', () => {
             cy.getApiAll('blog', blogProperties).then((blogs) => {
                 expect(blogs.length).to.be.greaterThan(0)
             })
+            cy.screenshot()
         })
-
         it('should fetch a single PUBLIC blog successfully', () => {
             cy.getAPIbyID('blog', '66c8580c291fee5a57a23457')
         })
@@ -33,8 +30,6 @@ describe('Blog API test', () => {
             })
         })
     })
-    context('Private API', () => {
 
-    })
 
 })
