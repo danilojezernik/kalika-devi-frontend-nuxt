@@ -1,10 +1,9 @@
-import {Blog} from "../../models/blog.model";
-
 describe('Blog API test', () => {
+
 
     context('Public Intercept', () => {
         it('Get all blogs from endpoint', () => {
-            cy.interceptAPI('GET', '/blog', 'getAllBlogs');
+            cy.interceptAPI('GET', 'blog', 'getAllBlogs');
         });
     });
 
@@ -12,9 +11,12 @@ describe('Blog API test', () => {
 
     })
 
-    context('Public API', () => {
-        it('should fetch all PUBLIC blogs successfully', () => {
-            const blogProperties = ['title', 'podnaslov', 'kategorija', 'vsebina', 'image', 'datum_vnosa']
+    context('Public API', () => {   
+                 
+        const blogProperties = ['title', 'podnaslov', 'kategorija', 'vsebina', 'image', 'datum_vnosa']
+        const limit = 4
+
+        it('should fetch all PUBLIC blogs successfully with all the blog properties', () => {
             cy.getApiAll('blog', blogProperties).then((blogs) => {
                 expect(blogs.length).to.be.greaterThan(0)
             })
@@ -25,7 +27,10 @@ describe('Blog API test', () => {
         })
 
         it('should fetch a limited amount of PUBLIC blogs successfully', () => {
-            cy.getAPILimited('blog/limited/', 3)
+            cy.getAPILimited('blog/limited/', limit).then((blogs) => {
+                expect(blogs.length).to.not.be.greaterThan(limit)
+                expect(blogs.length).to.not.be.lessThan(limit)
+            })
         })
     })
 
