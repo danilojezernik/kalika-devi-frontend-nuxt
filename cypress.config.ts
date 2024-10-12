@@ -2,6 +2,6 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'http://localhost:3030/',
+    baseUrl: 'https://kalika.api.danilojezernik.com/',
   },
 });
