@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "cy:open": "cypress open",
+    "cy:cloud": "npx cypress run --record --key 43d529b4-35bc-4585-8b96-2834136f84c0",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
